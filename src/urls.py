@@ -22,8 +22,13 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('ads', include('ads.urls')),
+    path('ads/', include('ads.urls')),
 ] 
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+
+# git add .
+# git commit -m "added User model"
+# git push
