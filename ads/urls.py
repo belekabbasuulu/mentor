@@ -1,20 +1,20 @@
 from django.urls import path
 
 from .views import (
-    ads_list,
+    AdsListView,
+    AdsDetailView,
+    AdsUpdateView,
+    AdsDeleteView,
     category_list,
-    create_ad,
-    update_ad,
-    retrieve_ad,
-    delete_ad
+    AdsCreateView,
 )
 
 
 urlpatterns = [
-    path("", ads_list, name="ads-list"),
+    path("", AdsListView.as_view(), name="ads-list"),
     path("category", category_list, name="category-list"),
-    path('create', create_ad, name='create_ad'),
-    path('update/<int:pk>/', update_ad, name='update_ad'),
-    path('<int:pk>/', retrieve_ad, name='retrieve_ad'),
-    path('delete/<int:pk>', delete_ad, name='delete_ad')
+    path('create', AdsCreateView.as_view(), name='create_ad'),
+    path('update/<int:pk>/', AdsUpdateView.as_view(), name='update_ad'),
+    path('<int:pk>/', AdsDetailView.as_view(), name='retrieve_ad'),
+    path('delete/<int:pk>', AdsDeleteView.as_view(), name='delete_ad')
 ]
